@@ -164,6 +164,12 @@ async def upload(pdf: UploadFile, folder_id: Optional[str] = Form(None)):
     shareable_url = f"https://drive.google.com/file/d/{file_id}/view?usp=sharing"
     return JSONResponse(status_code=201, content={"file_id": file_id, "shareable_url": shareable_url})
 
+@app.get("/cron")
+async def run_cron_task():
+    # Example: just a heartbeat or scheduled cleanup
+    print("Cron job triggered!")
+    return {"status": "Cron executed successfully"}
+
 
 @app.get("/")
 async def root():
