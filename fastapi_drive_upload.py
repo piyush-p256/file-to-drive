@@ -34,6 +34,24 @@ from google.oauth2 import service_account
 from google.oauth2.credentials import Credentials as OAuth2Credentials
 from google.auth.transport.requests import Request as GoogleRequest
 dotenv.load_dotenv() 
+from fastapi import FastAPI, File, Form, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+# ✅ Allow CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://127.0.0.1:8000",  # local Django
+        "http://localhost:8000",  # alternate local URL
+        "https://careercellbvcoe.in"  # (add when deployed)
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Constants
 MAX_FILE_SIZE = 20 * 1024 * 1024  # 20 MB
 # ✅ Use system temp directory instead of hardcoding /tmp
