@@ -54,7 +54,6 @@ MAX_FILE_SIZE = 20 * 1024 * 1024  # 20 MB
 UPLOAD_TMP_DIR = tempfile.gettempdir()
 DRIVE_SCOPES = ["https://www.googleapis.com/auth/drive.file"]
 
-app = FastAPI(title="Drive PDF Uploader")
 
 # ThreadPool for blocking Google Drive API calls
 executor = ThreadPoolExecutor(max_workers=4)
