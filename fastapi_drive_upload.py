@@ -37,7 +37,7 @@ dotenv.load_dotenv()
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+app = FastAPI(title="Drive PDF Uploader")
 
 # ✅ Allow CORS
 app.add_middleware(
